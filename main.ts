@@ -1,7 +1,8 @@
 // Nippon by Numbers — the hand-in program (Node 22, standard library only).
 //
-// The site is this directory's app/ folder: plain static files a browser opens
-// at app/index.html (ES modules, CSS, no build step), its content held in its
+// The site is this directory's app/ folder: Japan's national statistics —
+// population, economy, regions, health and education — as plain static files
+// a browser opens at app/index.html (ES modules, CSS, no build step), its
 // own files — nothing it runs, styles or shows loads over the network. This
 // program hands it in: it copies app/ and screenshots/ from beside this file
 // to /output and writes /output/dossier.json, the summary the judge reads
