@@ -133,19 +133,20 @@ export function pyramid(rows) {
   const max = Math.max(...rows.flatMap((r) => [r.male, r.female]));
   const mid = w / 2;
   const half = w / 2 - 70;
+  const gap = 26;
   const body = rows.map((r, i) => {
     const y = 26 + i * rowH;
     const mw = (r.male / max) * half;
     const fw = (r.female / max) * half;
-    return `<text x="${mid - 8}" y="${y + 12}" text-anchor="end" font-size="11" fill="${MUTED}">${esc(r.group)}</text>` +
-      `<rect x="${(mid - 8 - mw).toFixed(1)}" y="${y}" width="${mw.toFixed(1)}" height="14" rx="2" fill="${BLUE}"/>` +
-      `<rect x="${(mid + 8).toFixed(1)}" y="${y}" width="${fw.toFixed(1)}" height="14" rx="2" fill="${RED}"/>` +
-      `<text x="${(mid - 12 - mw).toFixed(1)}" y="${y + 12}" text-anchor="end" font-size="11" fill="${INK}">${fmt(r.male / 1000, 2)}m</text>` +
-      `<text x="${(mid + 12 + fw).toFixed(1)}" y="${y + 12}" font-size="11" fill="${INK}">${fmt(r.female / 1000, 2)}m</text>`;
+    return `<text x="${mid}" y="${y + 12}" text-anchor="middle" font-size="11" font-weight="600" fill="${INK}">${esc(r.group)}</text>` +
+      `<rect x="${(mid - gap - mw).toFixed(1)}" y="${y}" width="${mw.toFixed(1)}" height="14" rx="2" fill="${BLUE}"/>` +
+      `<rect x="${(mid + gap).toFixed(1)}" y="${y}" width="${fw.toFixed(1)}" height="14" rx="2" fill="${RED}"/>` +
+      `<text x="${(mid - gap - 4 - mw).toFixed(1)}" y="${y + 12}" text-anchor="end" font-size="11" fill="${INK}">${fmt(r.male / 1000, 2)}m</text>` +
+      `<text x="${(mid + gap + 4 + fw).toFixed(1)}" y="${y + 12}" font-size="11" fill="${INK}">${fmt(r.female / 1000, 2)}m</text>`;
   }).join('');
   return `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Population pyramid of Japan, 2024" class="chart">
-<text x="${mid - 8 - half / 2}" y="14" text-anchor="middle" font-size="13" font-weight="600" fill="${BLUE}">Men</text>
-<text x="${mid + 8 + half / 2}" y="14" text-anchor="middle" font-size="13" font-weight="600" fill="${RED}">Women</text>
+<text x="${mid - gap - half / 2}" y="14" text-anchor="middle" font-size="13" font-weight="600" fill="${BLUE}">Men</text>
+<text x="${mid + gap + half / 2}" y="14" text-anchor="middle" font-size="13" font-weight="600" fill="${RED}">Women</text>
 <text x="${mid}" y="14" text-anchor="middle" font-size="12" fill="${MUTED}">Age</text>
 ${body}</svg>`;
 }
