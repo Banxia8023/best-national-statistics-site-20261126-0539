@@ -265,7 +265,7 @@ ${section('All 47 prefectures',
     ${th('name', 'Prefecture')}<th>Japanese</th><th>Region</th><th>Capital</th>
     ${th('pop', 'Population')}${th('area', 'Area km²')}${th('density', 'Density /km²')}
   </tr></thead><tbody>${body || '<tr><td colspan="7">No prefecture matches that search.</td></tr>'}</tbody></table></div>
-  <p class="table-note">Density is people per km² of land. Tokyo, at 6,461 per km², is the densest; Hokkaido, at 61, the least dense.</p>`)}
+  <p class="table-note">Density is people per km² of land. Tokyo, at 6,462 per km², is the densest; Hokkaido, at 61, the least dense.</p>`)}
 <p class="update-note">Sources: Statistics Bureau of Japan, Population Estimates 1 Oct 2024; Geospatial Information Authority of Japan.</p>`;
 }
 
